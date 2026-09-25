@@ -311,7 +311,7 @@ export function ReceiptPrintDialog({ receipt, onClose }: ReceiptPrintDialogProps
         <div className="overflow-auto px-4 py-4">
           <div className="mx-auto max-w-[16rem] py-6 font-mono text-[11px] leading-relaxed text-neutral-900">
             <div className="border-y-2 border-neutral-900 py-3 text-center">
-              <p className="text-sm font-bold tracking-[0.2em]">HALIYA COFFEE SHOP</p>
+              <p className="text-sm font-bold tracking-[0.2em]">HALIYA SHOP</p>
               <p className="mt-2 text-[10px] text-neutral-500">
                 {formatReceiptDate(receipt.date)}
               </p>
