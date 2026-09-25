@@ -24,6 +24,7 @@ import {
   rejectMalformedForm,
 } from "@/lib/validation";
 import { cookies } from "next/headers";
+import { getSiteUrl } from "@/lib/site";
 
 async function enforceAuthRateLimit() {
   const ip = await getClientIp();
@@ -191,6 +192,7 @@ export async function signUp(formData: FormData) {
     email: emailResult.value,
     password: passwordResult.value,
     options: {
+      emailRedirectTo: `${getSiteUrl()}/login`,
       data: {
         full_name: fullName,
         role: "cashier",

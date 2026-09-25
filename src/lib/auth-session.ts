@@ -35,7 +35,7 @@ const baseCookieOptions: Partial<ResponseCookie> = {
   path: "/",
   sameSite: "lax",
   httpOnly: true,
-  secure: process.env.NODE_ENV === "production",
+  secure: process.env.NODE_ENV === "production" || process.env.VERCEL === "1",
 };
 
 export function buildAuthCookieOptions(rememberMe: boolean): Partial<ResponseCookie> {

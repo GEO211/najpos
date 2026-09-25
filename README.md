@@ -97,7 +97,9 @@ npm install
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) and sign in with your owner account.
+Open [http://localhost:3000](http://localhost:3000) locally, or [https://haliya-pos.vercel.app](https://haliya-pos.vercel.app) in production.
+
+On Vercel, set `NEXT_PUBLIC_SITE_URL=https://haliya-pos.vercel.app` and `SUPABASE_SERVICE_ROLE_KEY`. In Supabase → Authentication → URL Configuration, add `https://haliya-pos.vercel.app` as the site URL and redirect URL.
 
 ## Project Structure
 
