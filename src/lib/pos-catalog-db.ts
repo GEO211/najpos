@@ -1,4 +1,5 @@
 import type { Category, Product, ProductVariant } from "@/types/database";
+import type { SupabaseClient } from "@supabase/supabase-js";
 import { withPgClient } from "@/lib/db";
 
 function toNumber(value: unknown): number {
@@ -68,23 +69,9 @@ function mapCatalogRows(
   };
 }
 
-async function queryPosCatalog(supabase: {
-  from: (table: string) => {
-    select: (columns: string) => {
-      eq: (column: string, value: boolean) => {
-        order: (
-          column: string
-        ) => Promise<{ data: unknown[] | null; error: { message: string } | null }>;
-      };
-      order: (
-        column: string
-      ) => Promise<{
-        data: { id: unknown; name: unknown; created_at: unknown }[] | null;
-        error: { message: string } | null;
-      }>;
-    };
-  };
-}): Promise<{ products: Product[]; categories: Category[] }> {
+async function queryPosCatalog(
+  supabase: SupabaseClient
+): Promise<{ products: Product[]; categories: Category[] }> {
   const [
     { data: products, error: productsError },
     { data: categories, error: categoriesError },
